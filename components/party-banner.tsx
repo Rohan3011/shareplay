@@ -4,9 +4,9 @@ import { Button } from "./ui/button"
 
 function PartyBanner() {
   return (
-    <section className="flex flex-col gap-2 h-52 w-full rounded-sm bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-rose-200 via-red-400 to-red-900 py-4 px-10">
+    <section className="flex h-52 w-full flex-col gap-2 rounded-sm bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-rose-200 via-red-400 to-red-900 px-10 py-4">
       <div className="flex justify-between">
-        <h5 className="font-light text-sm">
+        <h5 className="text-sm font-light">
           PARTY by <span className="font-semibold">Rohan Kamble</span>
         </h5>
         <div className="live-status">
