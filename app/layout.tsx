@@ -1,10 +1,13 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import { playlists } from "@/data/playlists"
 
 import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/fonts"
+import { fontRoboto, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Sidebar } from "@/components/sidebar"
 import { SiteHeader } from "@/components/site-header"
+import SiteSidebar from "@/components/site-sidebar"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -35,15 +38,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
+          data-section="music"
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            fontRoboto.className
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
+            <div className="relative flex min-h-screen overflow-hidden">
+              <Sidebar
+                playlists={playlists}
+                className="hidden max-w-[300px] lg:block"
+              />
+              <div className="relative grid w-full">{children}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>
